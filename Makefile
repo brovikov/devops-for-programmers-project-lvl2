@@ -1,5 +1,6 @@
 install:
 	ansible-galaxy role install -r requirements.yml
+	ansible-galaxy collection install -r requirements.yml
 
 deploy:
 	ansible-playbook -i hosts -v playbook.yml --vault-password-file vault-password

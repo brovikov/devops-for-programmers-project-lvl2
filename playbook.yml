@@ -1,0 +1,29 @@
+- hosts: all
+  gather_facts: yes
+
+  tasks:
+    - name: Upgrade all apt packages
+      apt: upgrade=dist force_apt_get=yes
+
+    - name: Run container
+      # Используем модуль community.docker.docker_container
+      community.docker.docker_container:
+        name: redmine
+        image: redmine
+        # Публикуемые порты. Слева порт внутри контейнера,
+        # справа порт по которому он будет доступен снаружи
+        published_ports: 3000:3000
+        restart_policy: always
+        container_default_behavior: no_defaults
+        pull: yes
+        env:
+          REDMINE_DB_POSTGRES: "{{db_host}}"
+          REDMINE_DB_PORT: "{{db_port}}"
+          REDMINE_DB_USERNAME: "{{db_user}}"
+          REDMINE_DB_PASSWORD: "{{db_password}}"
+          REDMINE_DB_DATABASE: "{{data_base}}"
+          REDMINE_SECRET_KEY_BASE: "{{redmine_secret_key}}"
+
+  roles:
+    - geerlingguy.pip
+    - datadog.datadog

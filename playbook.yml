@@ -6,10 +6,12 @@
       ansible.builtin.apt:
         update_cache: yes
 
+  roles:
+    - { role: geerlingguy.pip, become: yes }
+
 - hosts: webservers
   roles:
     - { role: datadog.datadog, become: yes }
-    - { role: geerlingguy.pip, become: yes }
     # - name: geerlingguy.pip
     # - name: datadog.datadog
 

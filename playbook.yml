@@ -1,14 +1,14 @@
-- hosts: all
-  gather_facts: yes
-
-  tasks:
-    - name: Install packages
-      ansible.builtin.apt:
-        update_cache: yes
-
-  roles:
-    - { role: geerlingguy.pip, become: yes }
-
+# - hosts: all
+#   gather_facts: yes
+#
+#   tasks:
+#     - name: Install packages
+#       ansible.builtin.apt:
+#         update_cache: yes
+#
+#   roles:
+#     - { role: geerlingguy.pip, become: yes }
+#
 - hosts: webservers
   roles:
     - { role: datadog.datadog, become: yes }
@@ -40,3 +40,7 @@
           REDMINE_DB_PASSWORD: "{{db_password}}"
           REDMINE_DB_DATABASE: "{{data_base}}"
           REDMINE_SECRET_KEY_BASE: "{{redmine_secret_key}}"
+
+  roles:
+    - { role: geerlingguy.pip, become: yes }
+

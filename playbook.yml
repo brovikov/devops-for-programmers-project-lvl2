@@ -1,4 +1,11 @@
-- hosts: all
+- hosts: webservers
+  gather_facts: yes
+  remote_user: root
+  roles:
+    - name: geerlingguy.pip
+    - name: datadog.datadog
+
+- hosts: webservers
   gather_facts: yes
 
   tasks:
@@ -23,13 +30,3 @@
           REDMINE_DB_PASSWORD: "{{db_password}}"
           REDMINE_DB_DATABASE: "{{data_base}}"
           REDMINE_SECRET_KEY_BASE: "{{redmine_secret_key}}"
-
-  roles:
-    - geerlingguy.pip
-
-- hosts: webservers
-  gather_facts: yes
-  remote_user: root
-  roles:
-    - name: datadog.datadog
-

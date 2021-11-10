@@ -9,20 +9,17 @@
 #   roles:
 #     - { role: geerlingguy.pip, become: yes }
 #
-- hosts: webservers
-  roles:
-    - { role: datadog.datadog, become: yes }
-    # - name: geerlingguy.pip
-    # - name: datadog.datadog
-
 - hosts: all
   gather_facts: no
+
+  roles:
+    - geerlingguy.pip
 
   tasks:
     - name: Upgrade all apt packages
       apt: upgrade=dist force_apt_get=yes
 
-    - name: Run container
+    - name: Deploy Redmine
       # Используем модуль community.docker.docker_container
       community.docker.docker_container:
         name: redmine
@@ -41,6 +38,8 @@
           REDMINE_DB_DATABASE: "{{data_base}}"
           REDMINE_SECRET_KEY_BASE: "{{redmine_secret_key}}"
 
+
+- hosts: webservers
   roles:
-    - { role: geerlingguy.pip, become: yes }
+    - { role: datadog.datadog, become: yes }
 

@@ -1,11 +1,11 @@
-- hosts: webservers
+- hosts: all
   gather_facts: yes
   remote_user: root
   roles:
     - name: geerlingguy.pip
     - name: datadog.datadog
 
-- hosts: webservers
+- hosts: all
   gather_facts: yes
 
   tasks:

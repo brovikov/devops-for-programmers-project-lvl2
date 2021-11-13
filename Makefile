@@ -3,7 +3,7 @@ install:
 	ansible-galaxy collection install -r requirements.yml
 
 deploy:
-	ansible-playbook -i hosts -v playbook.yml --vault-password-file vault-password
+	ansible-playbook -i inventory.ini -v playbook.yml --vault-password-file vault-password
 
 encrypt-vault:
 	ansible-vault encrypt $(FILE) --vault-password-file vault-password

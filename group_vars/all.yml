@@ -1,16 +1,7 @@
 pip_install_packages:
+  - name: pip
   - name: docker
 
 db_host: "hexlet-db-do-user-221322-0.b.db.ondigitalocean.com"
 db_port: "25060"
 data_base: "defaultdb"
-
-datadog_site: "datadoghq.com"
-datadog_checks:
-  http_check:
-    init_config:
-    instances:
-      - name: Application health check status
-        url: "http://localhost:3000"
-        timeout: 5
-        method: GET

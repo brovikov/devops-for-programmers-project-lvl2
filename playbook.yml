@@ -1,19 +1,16 @@
-# - hosts: all
-#   gather_facts: yes
-#
-#   tasks:
-#     - name: Install packages
-#       ansible.builtin.apt:
-#         update_cache: yes
-#
-#   roles:
-#     - { role: geerlingguy.pip, become: yes }
-#
 - hosts: all
-  gather_facts: no
+  gather_facts: yes
+
+  tasks:
+    - name: Install packages
+      ansible.builtin.apt:
+        update_cache: yes
 
   roles:
-    - geerlingguy.pip
+    - { role: geerlingguy.pip, become: yes }
+
+- hosts: all
+  gather_facts: no
 
   tasks:
     - name: Upgrade all apt packages

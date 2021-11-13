@@ -5,3 +5,4 @@ pip_install_packages:
 db_host: "hexlet-db-do-user-221322-0.b.db.ondigitalocean.com"
 db_port: "25060"
 data_base: "defaultdb"
+

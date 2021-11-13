@@ -21,12 +21,12 @@
         container_default_behavior: no_defaults
         pull: yes
         env:
-          REDMINE_DB_POSTGRES: "{{db_host}}"
-          REDMINE_DB_PORT: "{{db_port}}"
-          REDMINE_DB_USERNAME: "{{db_user}}"
-          REDMINE_DB_PASSWORD: "{{db_password}}"
-          REDMINE_DB_DATABASE: "{{data_base}}"
-          REDMINE_SECRET_KEY_BASE: "{{redmine_secret_key}}"
+          REDMINE_DB_POSTGRES: "{{ db_host }}"
+          REDMINE_DB_PORT: "{{ db_port }}"
+          REDMINE_DB_USERNAME: "{{ db_user }}"
+          REDMINE_DB_PASSWORD: "{{ db_password }}"
+          REDMINE_DB_DATABASE: "{{ data_base }}"
+          REDMINE_SECRET_KEY_BASE: "{{ redmine_secret_key }}"
 
   roles:
     - { role: geerlingguy.pip, become: yes }

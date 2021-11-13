@@ -31,7 +31,6 @@
   roles:
     - { role: geerlingguy.pip, become: yes }
 
-
 - name: Setup monitoring
   hosts: webservers
   roles:

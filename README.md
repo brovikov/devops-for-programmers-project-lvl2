@@ -3,7 +3,7 @@
    
 Installs web-based project management and issue tracking tool - Redmine.  
    
-User invetnory.ini to set hosts  
+Use `invetnory.ini` to set hosts  
    
 `make install` - installs required role and collection  
    

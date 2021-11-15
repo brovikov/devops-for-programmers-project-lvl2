@@ -25,6 +25,9 @@ Use `invetnory.ini` to set hosts
 `make install` - installs required role and collection  
    
 Before encrypt/decrypt sensetive data - add password to file: `vault-password`
+  
+`make create-vault` - creates vault file `./group_vars/webservers/vault.yml` file  
+  
 `make encrypt-vault` - encrypts sensetive variables in `./group_vars/webservers/vault.yml` file  
   
 `make decrypt-vault` - use decrypt if need change DB user and password  

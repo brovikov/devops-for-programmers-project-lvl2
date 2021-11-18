@@ -7,6 +7,7 @@ deploy:
 
 create-vault:
 	ansible-vault create ./group_vars/webservers/vault.yml --vault-password-file vault-password
+	touch vault-password
 
 encrypt-vault:
 	ansible-vault encrypt ./group_vars/webservers/vault.yml --vault-password-file vault-password

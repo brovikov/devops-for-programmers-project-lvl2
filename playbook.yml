@@ -1,6 +1,5 @@
 - name: Setup packages
   hosts: all
-  gather_facts: yes
 
   tasks:
 
